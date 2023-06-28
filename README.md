@@ -1,4 +1,3 @@
-Certainly! Here's an example of a detailed Markdown file that provides an overview of the repository "Code-Editor" by ahkamboh:
 
 # Code-Editor
 
