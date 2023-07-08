@@ -132,7 +132,6 @@ body {
     background: repeating-linear-gradient(45deg, #0031F2 0 30px, #006DFE 0 40px, rgba(255, 255, 255, 0.3) 0 40px) right/200% 100%;
   }
 }
-
 .popbg {
   width: 100%;
   height: 100%;
@@ -142,6 +141,19 @@ body {
   position: fixed;
   background: #0000008e;
   z-index: 2;
+  opacity: 0;
+  animation: fadepop .7s ease 5.7s 1 normal forwards;
+}
+
+@keyframes fadepop {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+
+  }
 }
 
 .popup-box {
@@ -152,13 +164,22 @@ body {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.362);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
+  animation: scalepop .7s ease 5.6s 1 normal forwards;
+}
 
+@keyframes scalepop {
+	0% {
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scale(1);
+	}
 }
 
 .popup-box>span {
