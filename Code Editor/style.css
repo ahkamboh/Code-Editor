@@ -705,7 +705,7 @@ footer ul li a:hover {
   .cross {
     transform: scale(.8);
   }
-bottom-btn {
+.bottom-btn {
   justify-content:start;
   padding-left: 10px;
 }}
