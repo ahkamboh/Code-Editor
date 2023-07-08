@@ -1,3 +1,8 @@
+// https://github.com/ahkamboh/ 2023 project-21
+// Repositorie link
+// https://github.com/ahkamboh/Code-Editor/
+// portfolio link
+// https://ahkamboh.github.io/Portfolio/
 const htmleditor = CodeMirror.fromTextArea(document.getElementById("html"), {
   value: document.getElementById("html").innerText,
   mode: "xml",
@@ -45,9 +50,10 @@ run = () => {
   let result = document.querySelector(".result");
   output.contentDocument.body.innerHTML = htmlCode + cssCode;
   output.contentWindow.eval(scriptCode);
-  // For Small screen
+  // For Mobile phones to display output
   result.classList.toggle("Show");
-  document.querySelector("body").classList.toggle("overflow");
+  // prevent scroll on mobile while output screen show
+  document.querySelector("html").classList.toggle("overflow");
 };
 // Scroll toggle
 let header = document.querySelector("header");
