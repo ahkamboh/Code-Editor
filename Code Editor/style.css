@@ -36,8 +36,18 @@
 body {
 
   background-color: #1c1c1c;
-  animation: overflow .7s ease 6s 1 normal forwards;
-}
+    animation: overflow .7s ease 7s 1 normal forwards;
+    overflow: hidden;
+  }
+  
+  @keyframes overflow {
+  
+    0%,
+    100% {
+      overflow: scroll;
+    }
+  
+  }
 
 .loaderbg {
   width: 100%;
@@ -699,19 +709,4 @@ footer ul li a:hover {
   justify-content:start;
   padding-left: 10px;
 }}
-@media (min-width:900px){
-  body {
-    animation: overflow .7s ease 6s 1 normal forwards;
-    overflow: hidden;
-  }
-  
-  @keyframes overflow {
-  
-    0%,
-    100% {
-      overflow: scroll;
-    }
-  
-  }
-}
 
