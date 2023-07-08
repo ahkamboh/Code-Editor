@@ -705,4 +705,6 @@ footer ul li a:hover {
   .cross {
     transform: scale(.8);
   }
-}
+bottom-btn {
+  justify-content:start;
+}}
