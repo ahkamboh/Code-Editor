@@ -665,7 +665,10 @@ footer ul li a:hover {
 }
 
 @media (max-width:500px) {
-
+::-webkit-scrollbar {
+  width: 0em;
+  height: 0em;
+}
   .logo,
   .logo h3 {
     gap: 8px;
