@@ -72,7 +72,7 @@ window.addEventListener("scroll", function () {
 });
 
 // copy code function 
-copyContent =(id)=> {
+function copyContent(id) {
   let copyText = "";
   
   switch(id) {
@@ -101,7 +101,7 @@ copyContent =(id)=> {
 }
 
 // code  download function 
-  downloadFile =(fileId)=> {
+  function downloadFile(fileId) {
   var fileContent = "";
   var fileExtension = "";
   switch(fileId) {
