@@ -1,3 +1,6 @@
+// Portfolio link
+// https://alihamzakamboh.com
+// Github
 // https://github.com/ahkamboh/ 2023 project-21
 // Repositorie link
 // https://github.com/ahkamboh/Code-Editor/
@@ -68,107 +71,65 @@ window.addEventListener("scroll", function () {
   header.classList.toggle("header-border", window.scrollY > 0);
 });
 
-copyhtml = () => {
-  // Get the text field
-  let copyText = document.getElementById("html");
-  let copyinner = document.querySelector(".cpyhtml");
-  // Select the text field
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-  // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
-  copyinner.innerText = "Copied";
-};
+// copy code function 
+copyContent =(id)=> {
+  let copyText = "";
+  
+  switch(id) {
+    case 'html':
+      copyText = htmleditor.getValue();
+      break;
+    case 'css':
+      copyText = csseditor.getValue();
+      break;
+    case 'js':
+      copyText = jseditor.getValue();
+      break;
+    default:
+      console.error("Invalid id");
+      return;
+  }
 
-// file save formation
-let textarea = document.getElementById("html");
-let btnhtml = document.querySelector(".btnhtml");
-//on button click
-btnhtml.addEventListener("click", () => {
-  //creating new blob with textarea value and selected file format
-  let blob = new Blob([textarea.value], { type: "text/html" });
+  navigator.clipboard.writeText(copyText)
+    .then(() => {
+      let copyinner = document.querySelector(".cpy" + id);
+      copyinner.innerText = "Copied";
+    })
+    .catch(err => {
+      console.error('Error copying text: ', err);
+    });
+}
 
-  //creating temporary url for the blob
-  let fileUrl = URL.createObjectURL(blob);
-  //creating new a tag
-  let link = document.createElement("a");
-  //passing file name input value as download value for the link
-  link.download = "index";
+// code  download function 
+  downloadFile =(fileId)=> {
+  var fileContent = "";
+  var fileExtension = "";
+  switch(fileId) {
+    case 'html':
+      fileContent = htmleditor.getValue();
+      fileExtension = '.html';
+      break;
+    case 'css':
+      fileContent = csseditor.getValue();
+      fileExtension = '.css';
+      break;
+    case 'js':
+      fileContent = jseditor.getValue();
+      fileExtension = '.js';
+      break;
+    default:
+      console.error("Invalid fileId");
+      return;
+  }
 
-  //passing temporary url to link
-  link.href = fileUrl;
-
-  //on link click, file will be downloaded
-  link.click();
-});
-
-copycss = () => {
-  // Get the text field
-  let copyText = document.getElementById("css");
-  let copyinner = document.querySelector(".cpycss");
-  // Select the text field
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-  // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
-  copyinner.innerText = "Copied";
-};
-
-// file save formation
-let textareaCss = document.getElementById("css");
-let btncss = document.querySelector(".btncss");
-//on button click
-btncss.addEventListener("click", () => {
-  //creating new blob with textarea value and selected file format
-  let blob = new Blob([textarea.value], { type: "text/css" });
-
-  //creating temporary url for the blob
-  let fileUrl = URL.createObjectURL(blob);
-  //creating new a tag
-  let link = document.createElement("a");
-  //passing file name input value as download value for the link
-  link.download = "style";
-
-  //passing temporary url to link
-  link.href = fileUrl;
-
-  //on link click, file will be downloaded
-  link.click();
-});
-
-copyjs = () => {
-  // Get the text field
-  let copyText = document.getElementById("js");
-  let copyinner = document.querySelector(".cpyjs");
-  // Select the text field
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-  // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
-  copyinner.innerText = "Copied";
-};
-
-// file save formation
-let textareajs = document.getElementById("js");
-let btnjs = document.querySelector(".btnjs");
-//on button click
-btnjs.addEventListener("click", () => {
-  //creating new blob with textarea value and selected file format
-  let blob = new Blob([textareajs.value], { type: "text/js" });
-
-  //creating temporary url for the blob
-  let fileUrl = URL.createObjectURL(blob);
-  //creating new a tag
-  let link = document.createElement("a");
-  //passing file name input value as download value for the link
-  link.download = "script";
-
-  //passing temporary url to link
-  link.href = fileUrl;
-
-  //on link click, file will be downloaded
-  link.click();
-});
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(fileContent));
+  element.setAttribute('download', 'file' + fileExtension);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+}
 // pop up note 
 let myPopup = document.querySelector(".popbg");
 setTimeout(poPup, 20000);
@@ -177,6 +138,8 @@ function poPup() {
 }
 // ----------------------------------------------
 // Portfolio link
-// https://ahkamboh.github.io/Portfolio/
+// https://alihamzakamboh.com
+// Code-Editor Repo
 // https://github.com/ahkamboh/Code-Editor/
+// Github
 // https://github.com/ahkamboh
